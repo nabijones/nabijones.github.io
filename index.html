@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-  <link rel="icon" href="assets/logo.png" type="image/png" />
-  <link rel="apple-touch-icon" href="assets/logo.png" />
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nabi Jones</title>
@@ -24,12 +24,12 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Inter', sans-768pxserif;
       background-color: var(--cream);
       color: var(--purple);
       line-height: 1.6;
       font-weight: 300;
-      font-size: 16px;   
+      font-size: 16px;
     }
 
     header {
@@ -80,18 +80,12 @@
       padding-top: 8rem;
     }
 
-    /**.hero h2 {
-      font-family: 'Charlotten';
-      font-size: 68px;
-      font-weight: 200;
-      color: #A35D4E;
-    }**/
-
     .hero-title-image {
-      max-width: 35%;
+      width: 295px;
+      max-width: 80vw;
       height: auto;
     }
-
+    
     .hero p {
       font-size: 20px;
       margin-top: 1rem;
@@ -115,7 +109,6 @@
     }
 
     .book-cover {
-      /*flex: 1;*/
       min-width: 220px;
       display: flex;
       align-items: center;
@@ -141,6 +134,19 @@
       font-weight: 150;
     }
 
+    .quote-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .quote-source {
+      font-size: 0.80em;
+      color: #A0938E;
+    }
+
     .about {
       text-align: center;
     }
@@ -149,6 +155,7 @@
       position: relative;
       overflow: visible;
       padding: 2.5rem 1.5rem;
+      padding-top: 1em;
       text-align: center;
     }
 
@@ -166,18 +173,18 @@
     }
 
     .subscribe::before {
-      background-image: url('assets/floral_left_final.png');
+      background-image: url('assets/floral_left.png');
       width: 210px;
-      bottom: -13px;
+      bottom: 0px;
       transform: translateX(-175%);
     }
 
     .subscribe::after {
-      background-image: url('assets/floral_right2.png');
-      bottom: -161px;
-      opacity: 0.43;
+      background-image: url('assets/floral_right.png');
+      bottom: -135px;
       width: 240px;
-      transform: translateX(50%);
+      opacity: 0.55;
+      transform: translateX(35%);
     }
 
     .subscribe > * {
@@ -205,7 +212,7 @@
       cursor: pointer;
       text-decoration: none;
     }
-    
+
     .footer {
       background: var(--rosewood);
       color: white;
@@ -218,7 +225,7 @@
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
     }
-     
+
     .footer-icons {
       display: flex;
       justify-content: center;
@@ -232,6 +239,10 @@
     }
 
     @media (max-width: 768px) {
+      body {
+        font-size: 15px;
+      }
+
       .book-section {
         flex-direction: column;
       }
@@ -242,15 +253,44 @@
       }
 
       header img {
-        width: 60px;
+        width: 55px;
+      }
+      
+      .hero-title-image {
+        width: 50vw;
+        max-width: 90vw;
       }
 
-      /**.hero h2 {
-        font-size: 32px;
-      }**/
+      .hero {
+        padding-top: 6rem;
+        padding-bottom: 0.75rem;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      h3 {
+        font-size: 28px;
+      }
+
+      h4 {
+        font-size: 24px;
+      }
+
+      .quote-section {
+        font-size: 16px;
+      }
+
+      .subscribe-button {
+        font-size: 15px;
+        padding: 0.5rem 1rem;
+      }
     }
   </style>
 </head>
+
+
 <body>
   <header>
     <img src="assets/logo.png" alt="Nabi Jones Logo">
@@ -276,15 +316,28 @@
 
   <section class="quote-section">
     <!--div style="display: flex; align-items: flex-start; justify-content: center; gap: 1rem;"-->
-    <div style="justify-content: center; gap: 1rem;">
-      <!--img src="assets/quote.png" alt="Opening Quote Icon" style="width: 30px; height: auto" /-->
-      <div>
-        I look at the kites in the sky.<br />
-        They seem so free, yet there is a string...<br />
-        I wonder where they would go<br /> if they could leave.<br />
-      </div>
-      <span style="font-size: 0.80em; color: #A0938E;"><em>— from Korea D-234</em></span>
+    <!--div style="justify-content: center; gap: 1rem; display: flex; flex-direction: column; align-items: center;">
+    <img src="assets/quote.png" alt="Opening Quote Icon" style="width: 30px; height: auto" />
+    <div>
+      I look at the kites in the sky.<br />
+      They seem so free,<br />yet there is a string...<br />
+      I wonder where they would go<br /> if they could leave.<br />
     </div>
+    <span style="font-size: 0.80em; color: #A0938E;">
+      <em>— from Korea D-234</em>
+    </span-->
+
+    <div class="quote-container">
+    <div>
+      I look at the kites in the sky.<br />
+      They seem so free,<br />yet there is a string...<br />
+      I wonder where they would go<br /> if they could leave.<br />
+    </div>
+    <span class="quote-source">
+      <em>— from Korea D-234</em>
+    </span>
+  </div>
+</div>
     <!--div style="text-align: right; max-width: 900px; margin-top: 0.5em;">
       <span style="font-size: 0.85em; color: #A0938E;"><em>— from Korea D-234</em></span>
     </div-->
