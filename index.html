@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="/assets/logo.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nabi Jones</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FDFBFA;
+      --rosewood: #BD6365;
+      --buttermilk: #fdf6d8;
+      --purple: #5C3A4D;
+      --gold: #C09A5B;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-768pxserif;
+      background-color: var(--cream);
+      color: var(--purple);
+      line-height: 1.6;
+      font-weight: 300;
+      font-size: 16px;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      background: var(--cream);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      flex-direction: column;
+    }
+
+    header img {
+      width: 80px;
+      height: auto;
+    }
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .section {
+      padding: 2rem 2rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      text-align: center;
+      padding-top: 8rem;
+    }
+
+    .hero-title-image {
+      width: 295px;
+      max-width: 80vw;
+      height: auto;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-top: 1rem;
+    }
+
+    .book-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .book-text {
+      flex: 1;
+    }
+
+    .book-text p:last-child {
+      font-style: italic;
+      color: #A0938E;
+      margin-top: 1rem;
+    }
+
+    .book-cover {
+      min-width: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .book-cover img {
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+    }
+
+    .quote-section {
+      background-color: var(--buttermilk);
+      text-align: center;
+      padding: 2rem;
+      font-size: 20px;
+      font-style: italic;
+      font-family: 'Playfair Display', serif;
+      color: var(--gold);
+      font-weight: 150;
+    }
+
+    .quote-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .quote-source {
+      font-size: 0.80em;
+      color: #A0938E;
+    }
+
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .about-image {
+      min-width: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      order: -1;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-text h3 {
+      text-align: left;
+    }
+
+    .about-text p {
+      text-align: left;
+    }
+
+    .subscribe {
+      position: relative;
+      overflow: visible;
+      padding: 2.5rem 1.5rem;
+      padding-top: 1em;
+      margin-top: 5em;
+      text-align: center;
+    }
+
+    .subscribe::before,
+    .subscribe::after {
+      content: "";
+      position: absolute;
+      top: -230px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      opacity: 0.50;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .subscribe::before {
+      background-image: url('assets/floral_left.png');
+      width: 290px;
+      bottom: -307px;
+      transform: translateX(-135%);
+    }
+
+    .subscribe::after {
+      background-image: url('assets/floral_right.png');
+      bottom: -135px;
+      width: 222px;
+      opacity: 0.35;
+      transform: translateX(45%);
+    }
+
+    .subscribe > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .subscribe-title-heading .light {
+      font-size: 26px;
+    }
+
+    .subscribe-description {
+      margin-bottom: 1.5rem;
+    }
+
+    .subscribe-button {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--rosewood);
+      color: white;
+      padding: 0.5rem 0.75rem;
+      border: none;
+      border-radius: 10px;
+      font-weight: 300;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .footer {
+      background: var(--rosewood);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      font-size: 14px;
+      padding-bottom: 5.5rem;
+    }
+
+    #footer-heading {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      padding-top: 2.5rem;
+    }
+
+    .footer-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .footer-icons i {
+      font-size: 24px;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 15px;
+      }
+
+      .book-section {
+        flex-direction: column;
+      }
+
+      .about {
+        flex-direction: column;
+      }
+
+      .about-image {
+        order: -1;
+        width: 95%;
+      }
+
+      .subscribe {
+        margin-top: 0em;
+      }
+
+      .subscribe::before,
+      .subscribe::after {
+        display: none;
+      }
+
+      header img {
+        width: 55px;
+      }
+      
+      .hero-title-image {
+        width: 50vw;
+        max-width: 90vw;
+      }
+
+      .hero {
+        padding-top: 6rem;
+        padding-bottom: 0.75rem;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      h3 {
+        font-size: 28px;
+      }
+
+      h4 {
+        font-size: 24px;
+      }
+
+      .quote-section {
+        font-size: 16px;
+      }
+
+      .subscribe-button {
+        font-size: 15px;
+        padding: 0.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+  <header>
+    <img src="assets/logo.png" alt="Nabi Jones Logo">
+  </header>
+
+  <section class="hero section">
+    <!--h2>Nabi Jones</h2-->
+    <img src="assets/nabi_title.png" alt="Nabi Jones" class="hero-title-image" />
+    <p>to read slowly, to live deeply</p>
+  </section>
+
+  <section id="book" class="section book-section">
+    <div class="book-text">
+      <h3>Korea D-234</h3>
+      <p>Following a strong pull I could not explain, I boarded a one-way flight to South Korea with two suitcases full of dreams. What began as an exciting adventure turned into an unexpected journey of self-discovery. Korea became both a mirror and a teacher, revealing every hidden part of me, every wound that still needed to heal.</p>
+      <p><em>Korea D-234</em> is a memoir of personal transformation set against the backdrop of South Korea's vibrant, soulful culture. It is a story that weaves through relationships, family, health, identity, and the longing to belong. A reminder that our deepest struggles can guide us home to ourselves and the life we are meant to live.</p>
+      <p>Currently in progress</p>
+    </div>
+    <div class="book-cover">
+      <img src="assets/book_cover.png" alt="Book Cover">
+    </div>
+  </section>
+
+  <section class="quote-section">
+    <!--div style="display: flex; align-items: flex-start; justify-content: center; gap: 1rem;"-->
+    <!--div style="justify-content: center; gap: 1rem; display: flex; flex-direction: column; align-items: center;">
+    <img src="assets/quote.png" alt="Opening Quote Icon" style="width: 30px; height: auto" />
+    <div>
+      I look at the kites in the sky.<br />
+      They seem so free,<br />yet there is a string...<br />
+      I wonder where they would go<br /> if they could leave.<br />
+    </div>
+    <span style="font-size: 0.80em; color: #A0938E;">
+      <em>— from Korea D-234</em>
+    </span-->
+
+    <div class="quote-container">
+    <div>
+      I look at the kites in the sky.<br />
+      They seem so free,<br />yet there is a string...<br />
+      I wonder where they would go<br /> if they could leave.<br />
+    </div>
+    <span class="quote-source">
+      <em>— from Korea D-234</em>
+    </span>
+  </div>
+</div>
+    <!--div style="text-align: right; max-width: 900px; margin-top: 0.5em;">
+      <span style="font-size: 0.85em; color: #A0938E;"><em>— from Korea D-234</em></span>
+    </div-->
+  </section>
+
+  <section id="about" class="section about">
+    <div class="about-image">
+      <img src="assets/profile.png" alt="Nabi Jones">
+    </div>
+    <div class="about-text">
+      <h3>About Me</h3>
+      <p>Through personal experience, I write about the wounds we survive, the dreams we chase, and the joy we find along the way.</p>
+      <p>My writing reflects a life lived across cultures, a love for languages, and my background as an AI researcher. Between the words I share, I hope to hold a space for you to pause, breathe, and feel. A space where healing begins and inner transformation unfolds.</p>
+    </div>
+  </section>
+
+  <section class="subscribe" id="contact">
+    <!--<div style="max-width: 700px; margin: 0 auto;">-->
+      <div class="subscribe-title">
+        <h4 class="subscribe-title-heading">Letters <span class="light">from</span> Nabi</h4>
+      </div>
+      <p class="subscribe-description">I send short stories, reflections, and bits<br /> of what is to come.</p>
+      <!--button type="submit">Subscribe</button-->
+      <a href="https://nabijones.substack.com" target="_blank" rel="noopener noreferrer" class="subscribe-button">Subscribe</a>
+
+  </section>
+
+  <footer class="footer">
+    <div id="footer-heading">Connect with me</div>
+    <div class="footer-icons">
+      <a href="mailto:hello@nabijones.com"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.instagram.com/nabi.jones/" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://nabijones.substack.com" target="_blank" aria-label="Substack">
+        <img src="assets/substack_on_white.png" alt="Substack" style="height: 22px; width: auto; border-radius: 5px;" />
+      </a>
+    </div>
+    <hr style="border: none; border-top: 1px solid rgba(255, 255, 255, 0.4); margin: 1.5rem auto; width: 60%;">
+    <p>&copy; 2025 Nabi Jones. All rights reserved.</p>
+  </footer>
+</body>
+</html>
